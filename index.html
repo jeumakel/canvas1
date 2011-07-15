@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<meta name="viewport" content="width=620" />
+<title>This is canvas!</title>
+<link rel="stylesheet" href="html5reset-1.6.1.css" type="text/css" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<header id="main_header">
+<h1></h1>
+</header>
+<section id="main_wrapper">
+<div id="canvasDiv">
+<h2>Playground</h2>
+<canvas id="playground" height="400" width="600"></canvas>
+<canvas id="staticground" height="400" width="600"></canvas>
+<canvas id="background" height="400" width="600">This is canvas!</canvas>
+<div>
+<button id="fireElement" onclick="fireElement();" disabled="disabled">Add element!</button>
+<button id="goBut" onclick="startDemo(); this.disabled='disabled'; document.getElementById('fireElement').disabled=''; document.getElementById('stopBut').disabled='';">Start</button>
+<button id="stopBut" disabled="disabled" onclick="clearInterval(intId); this.disabled='disabled'; document.getElementById('fireElement').disabled='disabled'; document.getElementById('goBut').disabled='';">Stop</button>
+<div>Object count: <span id="infoBox">0</span></div>
+</div>
+</div>
+</section>
+<footer id="main_footer">
+</footer>
+<script src="elements.js"></script>
+<script src="environment.js"></script>
+<script src="render.js"></script>
+<script src="main.js"></script></body>
+</html>

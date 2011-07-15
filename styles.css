@@ -1,0 +1,40 @@
+header {
+width: 800px;
+margin: 5px auto;
+}
+body {
+
+}
+
+#canvasDiv h2 {
+margin: 5px;
+}
+
+#main_wrapper {
+width: 612px;
+margin: 5px auto;
+background-color: lightgrey;
+}
+
+#canvasDiv {
+width:610px;
+}
+
+#background{
+background-color: lightblue;
+margin: 0 5px;
+border: 1px solid #000000;
+z-index: 1;
+}
+
+#playground {
+margin: 0 5px;
+position: absolute;
+z-index: 3;
+}
+
+#staticground {
+margin: 0 5px;
+position: absolute;
+z-index: 2;
+}
