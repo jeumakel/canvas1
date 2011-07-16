@@ -6,7 +6,7 @@ function Element(type, props) {
 	this.gravitation = 0.85;
 	this.speed = 1.0;
 	this.direction = [0, 0];
-	this.massfactor = 10;
+	this.massfactor = 0.001;
 	this.elasticy = 1.0;
 	
 	/*

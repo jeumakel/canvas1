@@ -10,19 +10,20 @@ env.init(canvasObj.height, canvasObj.width);
 
 function fireElement() { 
 	var colors = ["red", "blue", "pink", "grey", "yellow", "green", "cyan"];
-	env.addElement("circle", [15, 100, 35, 35], colors[Math.round(Math.random() * 6)]); 
-	env.element_locations['el_' + env.element_count].direction = [10, -7];
+	env.addElement("circle", [35, 375, 35, 35], colors[Math.round(Math.random() * 6)]); 
+	env.element_locations['el_' + env.element_count].direction = [10, 0];
 }
 
 function renderAll() {
 	var i;
 	Render.clearScr();
 	document.getElementById('infoBox').innerHTML = env.element_count;
+	var obj;
 	for (i in env.element_locations) {
 		if (env.element_locations.hasOwnProperty(i)) {
-			var obj = env.element_locations[i];
-			Render.drawElement(obj);	
+			obj = env.element_locations[i];
 			env.moveElement(obj, obj.getDirection(), i);
+			Render.drawElement(obj);
 			obj = null;
 		}
 	}

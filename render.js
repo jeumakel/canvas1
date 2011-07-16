@@ -41,6 +41,7 @@ var Render = {
 		case "circle":
 			this.ctx.beginPath();
 			this.ctx.fillStyle = color;
+			//console.log(x + "-" + y);
 			this.ctx.arc(x, y, r, 0, Math.PI * 2, true);
 			this.ctx.closePath();
 			this.ctx.fill();
