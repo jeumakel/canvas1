@@ -11,7 +11,7 @@ env.init(canvasObj.height, canvasObj.width);
 function fireElement() { 
 	var colors = ["red", "blue", "pink", "grey", "yellow", "green", "cyan"];
 	env.addElement("circle", [35, 375, 35, 35], colors[Math.round(Math.random() * 6)]); 
-	env.element_locations['el_' + env.element_count].direction = [10, 0];
+	env.element_locations['el_' + env.element_count].direction = [10, -7];
 }
 
 function renderAll() {

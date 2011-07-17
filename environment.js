@@ -89,7 +89,7 @@ function Environment() {
 			dir[0] = -dir[0]; 
 		} else if (temp_pos[0] - ((isCircle) ? dist_pos[0] : 0) < 0) { 
 			temp_pos[0] = (isCircle) ? dist_pos[0] : 0; dir[0] = -dir[0]; 
-		} else { /*gf dfg */ }
+		} 
 		if (temp_pos[1] + dist_pos[1] > this.max_height) { 
 			if (dir[1] <= 1) { 
 				temp_pos[1] = this.max_height - dist_pos[1];  
@@ -163,46 +163,20 @@ function Environment() {
 		var i;
 		var col_obj;
 		var other_dir = [0, 0];
-		var curr_key;
 		var key_mass = key_obj.mass;
-		var other_mass;
+		var other_mass = 0;
 		for (i in intersections) {
 			if (this.element_locations.hasOwnProperty(intersections[i])) {
-				var dir_change = 0;
-				curr_key = intersections[i];
-				col_obj = this.element_locations[curr_key];
+				col_obj = this.element_locations[intersections[i]];
 				other_dir = col_obj.direction;
 				other_mass = col_obj.mass;
-				//console.log(key_mass + "__" + other_mass);
+				console.log(dir[0] +"<|||>"+ dir[1]+"<|||>"+ other_dir[0]+"<|||>"+ other_dir[1]);
 				// movement on x direction
- 				if (other_dir[0] * dir[0] > 0) {
-					dir_change = parseInt((key_mass <= other_mass) ? key_mass / other_mass :  other_mass / key_mass); 
-					other_dir[0] = parseInt(other_dir[0]) + parseInt(( other_dir[0] > dir[0] ? 1 : -1 ) * dir_change);
-					dir[0] = parseInt(dir[0]) + parseInt(( other_dir[0] > dir[0] ? 1 : -1 ) * dir_change);
-					//console.log("|" + dir_change + "|" + other_dir[0] + "|" + (( other_dir[0] > dir[0] ? 1 : -1 ) * dir_change));
-				} else { 
-					other_dir[0] *= -1; 
-					dir[0] *= -1; 
-					dir_change = parseInt((key_mass <= other_mass) ? key_mass / other_mass :  other_mass / key_mass); 
-					other_dir[0] = parseInt(other_dir[0]) + parseInt(( other_dir[0] > dir[0] ? 1 : -1 ) * dir_change);
-					dir[0] = parseInt(dir[0]) + parseInt(( other_dir[0] > dir[0] ? 1 : -1 ) * dir_change);
-					//console.log("|" + dir_change + "|" + other_dir[0] + "|" + (( other_dir[0] > dir[0] ? 1 : -1 ) * dir_change));
-				}
+				dir[0] = (dir[0] * (key_mass - other_mass) + 2 * other_mass * other_dir[0])/(key_mass + other_mass);
+				other_dir[0] = (other_dir[0] * (other_mass - key_mass) + 2 * key_mass * dir[0])/(key_mass + other_mass);
 				// movement on y direction
- 				if (other_dir[1] * dir[1] > 0) { 
-					dir_change = parseInt((key_mass <= other_mass) ? key_mass / other_mass :  other_mass / key_mass); 
-					other_dir[1] = parseInt(other_dir[1]) +  (( other_dir[1] > dir[1] ? 1 : -1 ) * dir_change);
-					dir[1] = parseInt(dir[1]) + parseInt(( other_dir[1] > dir[1] ? 1 : -1 ) * dir_change);
-					//console.log("---------------|" + dir_change);
-				} else {
-					other_dir[1] *= -1; 
-					dir[1] *= -1; 
-					dir_change = parseInt((key_mass <= other_mass) ? key_mass / other_mass :  other_mass / key_mass); 
-					other_dir[1] = parseInt(other_dir[1]) + parseInt(( other_dir[1] > dir[1] ? 1 : -1 ) * dir_change);
-					dir[1] = parseInt(dir[1]) + parseInt(( other_dir[1] > dir[1] ? 1 : -1 ) * dir_change);
-					//console.log("---------------|" + dir_change);
- 				} 
-				/* else if (other_dir[1] < 0 && dir[1] < 0) {} */
+				dir[1] = (dir[1] * (key_mass - other_mass) + 2 * other_mass * other_dir[1])/(key_mass + other_mass);
+				other_dir[1] = (other_dir[1] * (other_mass - key_mass) + 2 * key_mass * dir[1])/(key_mass + other_mass);
 				//console.log(dir[0] +"<|||>"+ dir[1]+"<|||>"+ other_dir[0]+"<|||>"+ other_dir[1]);
 				this.updateDirection(col_obj, other_dir);
 				//this.updateDirection(key_obj, dir);
