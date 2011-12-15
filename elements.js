@@ -6,7 +6,7 @@ function Element(type, props) {
 	this.gravitation = 0.85;
 	this.speed = 1.0;
 	this.direction = [0, 0];
-	this.massfactor = 0.001;
+	this.massfactor = 10;
 	this.elasticy = 1.0;
 	
 	/*
@@ -27,11 +27,14 @@ function Element(type, props) {
 	this.getSpeed = function () {
 		return this.speed;
 	};
+	this.move = function (new_dir) {
+		return this.speed;
+	};
 }
 
 function Circle_El(type, props) {
 	this.type = type;
-	this.rad = props[0];
+	this.rad = this.dim[0] = props[0];
 	this.mass = this.massfactor * this.rad * this.rad * Math.PI;
 }
 

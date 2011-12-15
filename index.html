@@ -6,10 +6,11 @@
 <title>This is canvas!</title>
 <link rel="stylesheet" href="html5reset-1.6.1.css" type="text/css" />
 <link rel="stylesheet" href="styles.css" type="text/css" />
+<script src="jquery-1.7.1.min.js"></script>
 </head>
 <body>
 <header id="main_header">
-<h1></h1>
+<h1>Taskare</h1>
 </header>
 <section id="main_wrapper">
 <div id="canvasDiv">
@@ -19,8 +20,10 @@
 <canvas id="background" height="400" width="600">This is canvas!</canvas>
 <div>
 <button id="fireElement" onclick="fireElement();" disabled="disabled">Add element!</button>
-<button id="goBut" onclick="startDemo(); this.disabled='disabled'; document.getElementById('fireElement').disabled=''; document.getElementById('stopBut').disabled='';">Start</button>
-<button id="stopBut" disabled="disabled" onclick="clearInterval(intId); this.disabled='disabled'; document.getElementById('fireElement').disabled='disabled'; document.getElementById('goBut').disabled='';">Stop</button>
+<button id="goBut" onclick="startDemo(); this.disabled='disabled'; $('#fireElement')[0].disabled=''; $('#stopBut')[0].disabled='';">Start</button>
+<button id="stopBut" disabled="disabled" onclick="clearInterval(intId); this.disabled='disabled'; $('#fireElement')[0].disabled='disabled'; $('#goBut')[0].disabled='';">Stop</button>
+Block:<input type="radio" name="el_type" id="el_type_radio" checked="checked" value="Block"/>
+Circle:<input type="radio" name="el_type" value="Circle"/>
 <div>Object count: <span id="infoBox">0</span></div>
 </div>
 </div>
@@ -30,5 +33,6 @@
 <script src="elements.js"></script>
 <script src="environment.js"></script>
 <script src="render.js"></script>
-<script src="main.js"></script></body>
+<script src="main.js"></script>
+</body>
 </html>

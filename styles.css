@@ -13,7 +13,7 @@ margin: 5px;
 #main_wrapper {
 width: 612px;
 margin: 5px auto;
-background-color: lightgrey;
+background-color: #CCCCCC;
 }
 
 #canvasDiv {
@@ -21,7 +21,7 @@ width:610px;
 }
 
 #background{
-background-color: lightblue;
+background-color: #aaaaFF;
 margin: 0 5px;
 border: 1px solid #000000;
 z-index: 1;

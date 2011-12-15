@@ -6,7 +6,7 @@ var Render = {
 		this.drawBackground();
 	},
 	drawBackground: function () {
-		var bgc = document.getElementById("background");
+		var bgc = $("#background")[0];
 		var bgctx = bgc.getContext("2d");
 		bgctx.lineWidth = 6;  
 		bgctx.strokeStyle = "#333";
@@ -41,7 +41,6 @@ var Render = {
 		case "circle":
 			this.ctx.beginPath();
 			this.ctx.fillStyle = color;
-			//console.log(x + "-" + y);
 			this.ctx.arc(x, y, r, 0, Math.PI * 2, true);
 			this.ctx.closePath();
 			this.ctx.fill();
